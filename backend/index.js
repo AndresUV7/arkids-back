@@ -39,12 +39,16 @@ app.use(require("./routes/historial.routers"));
 
 
 //Starting the server
-https.createServer({
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.cert')
-}, app).listen(PORT, () => {
-  console.log('Listening...')
-})
+// https.createServer({
+//   key: fs.readFileSync('server.key'),
+//   cert: fs.readFileSync('server.cert')
+// }, app).listen(PORT, () => {
+//   console.log('Listening...')
+// })
+app.listen(PORT, () => {
+  console.log(`Our app is running on port ${ PORT }`);
+});
+
 // app.listen(app.get("port"), () => {
 //   console.log("Servidor en puerto 3000");
 // });
