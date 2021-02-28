@@ -29,7 +29,7 @@ Persona.methods.verifyPassword = function (contrasena) {
 Persona.methods.generateJwt = function () {
   console.log(this.cedula);
   return jwt.sign({ id: this.cedula }, "secretkey1234", {
-    expiresIn: "5m",
+    expiresIn: "15m",
   });
 };
 

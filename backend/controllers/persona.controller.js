@@ -68,7 +68,7 @@ personaCtrl.registrarPersona = async (req, res) => {
     persona.usuario.contrasena = bcrypt.hashSync(req.body.usuario.contrasena, bcrypt.genSaltSync(10));
     persona.estado = 1;
     const token = jwt.sign({ id: this.cedula }, "secretkey1234", {
-        expiresIn: "5m",
+        expiresIn: "15m",
       });
 
     const encontrado = await Persona.findOne({cedula:cedula, estado: { $ne: -1 } }, );
@@ -112,7 +112,7 @@ personaCtrl.actualizarContrasena = async (req, res) => {
     persona.usuario.contrasena = bcrypt.hashSync(req.body.usuario.contrasena, bcrypt.genSaltSync(10));
     persona.estado = 1;
     const token = jwt.sign({ id: this.cedula }, "secretkey1234", {
-        expiresIn: "5m",
+        expiresIn: "15m",
       });
 
     const encontrado = await Persona.findOne({cedula:cedula, estado: { $ne: -1 } }, );
