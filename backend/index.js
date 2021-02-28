@@ -10,11 +10,12 @@ const app = express();
 const { mongoose } = require("./database");
 
 //Settings
-app.set("port", process.env.PORT || 3000);
+//app.set("port", process.env.PORT || 3000);
 // process.env.TZ = 'America/Guayaquil';
 
 //Middlewares
 app.use(morgan("dev"));
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 app.use(passport.initialize());
@@ -41,7 +42,7 @@ app.use(require("./routes/historial.routers"));
 https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')
-}, app).listen(3000, () => {
+}, app).listen(PORT, () => {
   console.log('Listening...')
 })
 // app.listen(app.get("port"), () => {
